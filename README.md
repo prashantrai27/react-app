@@ -56,4 +56,10 @@ parcel - it's also bundler.
 * using component inside a component in react is called component composition.
 - using {} we can write javascript code inside jsx. these brackets sanitizes the data. no malicious attack can be done. it is being tracked by react.
 
+# Lecture 4 - Food ordering app
+
+* props or properties are something which can be passed to component. props are arguments to a function.
+* config driven UI - UI is driven or controlled by config getting from backend api (different UI for different places).
+* whenever we are looping through array using for loop or map we have to pass one unique id. it's mandatory otherwise warning will come. with the help of it react uniquely identifies that element.
+* React says never use indexes as unique keys.
 
