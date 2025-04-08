@@ -50,16 +50,58 @@ parcel - it's also bundler.
 - if we have to write attribute in jsx it should be in camel case. if multi line jsx is to be written it should be wrapped in banana () bracket.
 
 * There are two ways to create component in react. first is class based component and another one functional component.
+
 - every component in react is started with capital letter.
 - Functional Component - it is normal js functions which returns jsx code or function that return react element.
 
 * using component inside a component in react is called component composition.
+
 - using {} we can write javascript code inside jsx. these brackets sanitizes the data. no malicious attack can be done. it is being tracked by react.
 
 # Lecture 4 - Food ordering app
 
-* props or properties are something which can be passed to component. props are arguments to a function.
-* config driven UI - UI is driven or controlled by config getting from backend api (different UI for different places).
-* whenever we are looping through array using for loop or map we have to pass one unique id. it's mandatory otherwise warning will come. with the help of it react uniquely identifies that element.
-* React says never use indexes as unique keys.
+- props or properties are something which can be passed to component. props are arguments to a function.
+- config driven UI - UI is driven or controlled by config getting from backend api (different UI for different places).
+- whenever we are looping through array using for loop or map we have to pass one unique id. it's mandatory otherwise warning will come. with the help of it react uniquely identifies that element.
+- React says never use indexes as unique keys.
 
+# Lecture 5
+
+// main layout componenent
+// - header component
+// - Logo
+// - nav items
+// - Body
+// - Search
+// - Restaurant container
+// - restro cards
+// - image
+// - Name
+// - cuisines, Name of restraunt, Delivery time
+// - Footer
+// - copyright
+// - links
+// - address
+// - contacts
+
+- Two types of export and import
+
+default - export default some_name;
+import some_name from './path'
+
+Named - export const some_name;
+import {some_name} from './path'
+
+- React Hooks - utility function given by js. it's normal js utility function.
+
+* useState() - used to create powerful react variables. it maintains state of component.
+  ex - const [someVariable, setSomeVariable] = useState([]); === here to update someVariable we need to provide updated value to setSomeVariable. and also in useState we provide intial state of that variable.
+* whenever a state variable changes react will re-rendered our component.
+* useEffect() -
+
+- React Algo
+
+* React uses reconciliation alogrithm also called as react fibre. it came in React 16. it uses incremental rendering.
+* React uses virtual DOM. it is a representation of actual DOM.
+* Diff algorithm -- it finds the difference between two(old and new) virtual dom.
+* React is doing efficient dom manipulation with the help of virtual DOM. This makes react fast.

@@ -44,3 +44,7 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.search {
+  padding: 10px;
+}
