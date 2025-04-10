@@ -1,7 +1,7 @@
 import { CDN_URL } from "../utils/constants";
 
 const RestrauntCard = (ListOfObj) => {
-  const { name, cuisines, avgRating, cloudinaryImageId, deliveryTime } =
+  const { name, cuisines, avgRating, cloudinaryImageId, sla } =
     ListOfObj.resObj;
   return (
     <div className="rest-card">
@@ -9,7 +9,7 @@ const RestrauntCard = (ListOfObj) => {
       <h3>{name}</h3>
       <h4>{cuisines.join(", ")}</h4>
       <h4>{avgRating}</h4>
-      <h4>{deliveryTime}</h4>
+      <h4>{sla.deliveryTime}</h4>
     </div>
   );
 };

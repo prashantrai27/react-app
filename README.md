@@ -105,3 +105,19 @@ import {some_name} from './path'
 * React uses virtual DOM. it is a representation of actual DOM.
 * Diff algorithm -- it finds the difference between two(old and new) virtual dom.
 * React is doing efficient dom manipulation with the help of virtual DOM. This makes react fast.
+
+# lecture 6
+
+* Loads(app loads) --> Render --> API load --> Render.
+* To avoid CORS issue we can by pass using private chrome. or using extension.
+* instead of loading text or loader api we can use shimmer ui. 
+* we can perform shimmer ui using conditional rendering.
+* monolith architecture - everything at one place.
+* Microservice architecture - different service for different jobs. like backend service, frontend service,
+sms service or email notification service. (all combines and forms big app);
+* every service can have different tech stack. on different port we can deploy different services.
+
+* separation of concern - each services has different jobs. all services talk to each other.
+* React has the best render job mechanism.
+* useEffect - it's normal js function. which has it's own js function. arrow function and dependency. it gets
+called after our component gets render. After rendering if we have to do something we can use useEffect.
