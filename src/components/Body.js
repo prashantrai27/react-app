@@ -1,6 +1,8 @@
 import RestrauntCard from "./RestrauntCard";
 import Shimmer from "./Shimmer";
 import { useEffect, useState } from "react";
+import { SWIGGY_DATA_URL } from "../utils/constants";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
@@ -11,11 +13,8 @@ const Body = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
   const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5713497&lng=73.91981609999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
+    const data = await fetch(SWIGGY_DATA_URL); // using cors proxy to bypass cors issue
     const swiggyResponse = await data.json();
     setListOfRestaurant(
       swiggyResponse.data.cards[4].card.card.gridElements.infoWithStyle
@@ -28,7 +27,7 @@ const Body = () => {
   };
 
   const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       handleSearch();
     }
   };
@@ -38,7 +37,7 @@ const Body = () => {
       return restaurant.info.name.toLowerCase().includes(restroName);
     });
     setFilteredListOfRestaurant(filteredList);
-  }
+  };
 
   return listOfRestaurant.length === 0 ? (
     <Shimmer />
@@ -54,7 +53,9 @@ const Body = () => {
         ></input>
         <button
           className="search"
-          onClick={() => {handleSearch}}
+          onClick={() => {
+            handleSearch;
+          }}
         >
           Search
         </button>
@@ -73,7 +74,9 @@ const Body = () => {
       <div className="rest-container">
         <div className="restaurant-cards">
           {filteredListOfRestaurant.map((restraunt) => (
-            <RestrauntCard key={restraunt.info.id} resObj={restraunt.info} />
+            <Link key={restraunt.info.id} to={"/restraunts/"+restraunt.info.id}>
+            <RestrauntCard  resObj={restraunt.info} />
+            </Link>
           ))}
         </div>
       </div>

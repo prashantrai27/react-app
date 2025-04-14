@@ -121,3 +121,36 @@ sms service or email notification service. (all combines and forms big app);
 * React has the best render job mechanism.
 * useEffect - it's normal js function. which has it's own js function. arrow function and dependency. it gets
 called after our component gets render. After rendering if we have to do something we can use useEffect.
+
+# lecture 7
+
+* useEffect is called after every render of that component.
+* it takes callback function and dependency array. if no dependency array means it'll get called on every render.
+* if dependency array is empty then useEffect is called on initial rendere and just once.
+* if we have something as a dependency. then it get called whenever there is change in dependency.
+* dont create your state varible or useState inside if.. else or function.
+
+* to use routing in react we import react-router-dom using npm.
+* we use createBrowserRouter to define all the paths. used to create a configuration. it is array of object.
+* After creating the configuration we need to provide it to app. RouterProvider is needed to provide it to
+our application.
+* if we write rafce in our file it creates a component and export it for you.
+
+* react-router-dom gives us hook useRouteError. using this hook we can more info about the error.
+* <Outlet> is getting filled with children which is passed from other end.
+* In react to move to another page never use anchor tag. we can navigate to different page without reloading whole page.
+* link component is being used to navigate and link we get from react-router-dom.
+* Link is same as anchor tag but in this instead of href we use 'to'.
+* because of this it doesn't reload whole page. it refreshes only that component. in this component only interchanges via client side routing.
+* because of this react is known as single page application.
+
+* Routing in web apps.
+- server side routing - we get the page from the server through api
+- client side routing - it just load the page. no network call in this.
+
+* Link component basically have anchor tag inside it. Link component is a wrapper over anchor tag. it's given by react-router-dom.
+* we can use useParams from react-router-dom to get the parameters passed in the route.
+const {param} = useParams():
+
+
+

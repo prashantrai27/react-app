@@ -1,5 +1,5 @@
 .app {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 .header {
@@ -66,4 +66,46 @@
   margin: 5px;
   display: flex;
   padding: 10px 0 10px 0;
+}
+
+.item-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  background-color: #edf9f9;
+  margin-top: 5px;
+  box-shadow: 3px 3px 2px lightblue;
+}
+
+.flex-class {
+  width: inherit;
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-heading {
+  justify-content: start;
+  display: flex;
+  background-color: #fbeffb;
+  box-shadow: 3px 3px 0px #d8d0fb;
+}
+
+.item-info {
+  display: flex;
+  background-color: #e6f1ed;
+  justify-content: space-between;
+  padding: 5px;
+  box-shadow: 1px 2px 5px black;
+  margin: 4px;
+}
+
+.item-list {
+  width: 50%;
 }
