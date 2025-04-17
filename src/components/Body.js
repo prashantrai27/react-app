@@ -54,7 +54,7 @@ const Body = () => {
         <button
           className="search"
           onClick={() => {
-            handleSearch;
+            handleSearch();
           }}
         >
           Search
@@ -62,10 +62,10 @@ const Body = () => {
         <button
           className="search"
           onClick={() => {
-            const filteredList = listOfRestaurant.filter(
+            const filteredList = filteredListOfRestaurant.filter(
               (restro) => restro.info.avgRating > 4.2
             );
-            setListOfRestaurant(filteredList);
+            setFilteredListOfRestaurant(filteredList);
           }}
         >
           Find high rated Restraunt

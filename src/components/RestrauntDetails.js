@@ -40,8 +40,8 @@ const RestrauntCard = () => {
         {foodItems.map((item) => {
           return (
             <div key={item.card.info.id} className="item-info">
-              <container>{item.card.info.name}</container>
-              <container>₹ {item.card.info.price}</container>
+              <div>{item.card.info.name}</div>
+              <div>₹ {item.card.info.price}</div>
             </div>
           );
         })}
