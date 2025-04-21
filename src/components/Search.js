@@ -1,4 +1,3 @@
-import restrauntList from "../utils/mockData";
 import { useState } from "react";
 
 const Search = () => {
@@ -17,7 +16,7 @@ const Search = () => {
         Search
       </button>
     </div>
-  );
+  ); 
 };
 
 export default Search;

@@ -110,3 +110,9 @@
 .item-list {
   width: 50%;
 }
+
+.contact-details {
+  border: 1px dashed black;
+  margin-top: 5px;
+  padding: 10px;
+}

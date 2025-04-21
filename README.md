@@ -150,7 +150,51 @@ our application.
 
 * Link component basically have anchor tag inside it. Link component is a wrapper over anchor tag. it's given by react-router-dom.
 * we can use useParams from react-router-dom to get the parameters passed in the route.
-const {param} = useParams():
+const {param} = useParams();
+
+# Lecture - 8 (Class based component)
+
+* Class based component is a class which has render method which returns some piece of jsx.
+* In class based component we can pass the prop same as functional component but to access it,
+we need to use super keyword in the constructor. later we can use it with 'this' keyword.
+
+* like this we create class based component. 
+class component_name extends React.Component {
+  render() {
+    return <div> something </div>
+  }
+}
+
+* In class based component we declare state variable inside constructor and using this.state, in this 
+object we can have all the variables.
+* to update the state variable in class based component we use setState method and we can update only that variable which is required.
+* componentDidMount is used for api calls in class based component because it runs after the component is rendered.
+* first constructor run when component initializes then render method and at last componentDidMount method.
+* There are two phase render and commit phase.
+* when two childs are there or more then react batch render phase of all the child then commit phase start sequentially.
+* manipulating or updating the DOM is expensive task. that's why react batch render phase. it optimize
+the app.
+* To have an api call in class based component we can make componentDidMount as async.
+* Mounting process -> constructor gets called then render phase is done. it updates the DOM with dummy
+data later componentDidMount called and re renders with actual data.
+* setState updates the state variable.
+* first mounting cycle happens then update cycle is done and then in last unmounting is done.
+* componentWillUnmount is called when we leave the current page so before this it gets called.
+
+//////////// Mounting ////////////////////
+- Constructor (dummy)
+- Render (dummy)
+      <HTML dummy>
+- Component Did Mount
+      Api call
+      this.setState -> this updates the state variable
+
+///////////// Update ///////////////
+- render (Api data)
+<HTML apidata>
+- Component Did Update
+//////////// Unmount ////////////
+- Component Will Unmount
 
 
 
