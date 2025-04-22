@@ -1,30 +1,18 @@
-import { useEffect, useState } from "react";
-import { SWIGGY_RESTRO_MENU_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
+import useRestrauntDetails from "../utils/useRestrauntDetails";
 
 const RestrauntCard = () => {
-  const [restroMenu, setRestroMenu] = useState(null);
   const { resId } = useParams();
 
-  useEffect(() => {
-    fetchMenu();
-  }, []);
+  const restroMenu = useRestrauntDetails(resId);
 
-  const fetchMenu = async () => {
-    const data = await fetch(SWIGGY_RESTRO_MENU_URL + resId);
-    const restroMenu = await data.json();
-    setRestroMenu(restroMenu);
-  };
   if (restroMenu === null) return <Shimmer />;
-  console.log("infor", restroMenu);
   const { name, cuisines, avgRatingString } =
     restroMenu?.data?.cards[2]?.card?.card?.info;
   const foodItems =
     restroMenu?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
       ?.card?.card?.itemCards;
-
-  console.log(foodItems, "items");
   return (
     <div className="item-container">
       <div className="item-header">
@@ -37,14 +25,18 @@ const RestrauntCard = () => {
       <div className="item-list">
         <h2 className="item-heading">Items</h2>
 
-        {foodItems.map((item) => {
-          return (
-            <div key={item.card.info.id} className="item-info">
-              <div>{item.card.info.name}</div>
-              <div>₹ {item.card.info.price}</div>
-            </div>
-          );
-        })}
+        {foodItems ? (
+          foodItems.map((item) => {
+            return (
+              <div key={item.card.info.id} className="item-info">
+                <div>{item.card.info.name}</div>
+                <div>₹ {item.card.info.price ? item.card.info.price: 'NA'}</div>
+              </div>
+            );
+          })
+        ) : (
+          <div>No Service Available!!!</div>
+        )}
       </div>
     </div>
   );

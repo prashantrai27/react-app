@@ -1,30 +1,32 @@
 import RestrauntCard from "./RestrauntCard";
 import Shimmer from "./Shimmer";
 import { useEffect, useState } from "react";
-import { SWIGGY_DATA_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
+import useAppData from "../utils/useAppData";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
   const [filteredListOfRestaurant, setFilteredListOfRestaurant] = useState([]);
 
-  const [restroName, setRestroName] = useState("");
+  const swiggyResponse = useAppData();
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-  const fetchData = async () => {
-    const data = await fetch(SWIGGY_DATA_URL); // using cors proxy to bypass cors issue
-    const swiggyResponse = await data.json();
-    setListOfRestaurant(
-      swiggyResponse.data.cards[4].card.card.gridElements.infoWithStyle
-        .restaurants
-    ); // Getting live api response
-    setFilteredListOfRestaurant(
-      swiggyResponse.data.cards[4].card.card.gridElements.infoWithStyle
-        .restaurants
-    ); // Getting live api response
-  };
+  useEffect(()=>{
+    if(swiggyResponse.data) {
+      setListOfRestaurant(
+        swiggyResponse?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+          .restaurants
+      ); // Getting live api response
+      setFilteredListOfRestaurant(
+        swiggyResponse?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+          .restaurants
+      ); // Getting live api response
+    }
+  },[swiggyResponse.data])
+  
+  const onlineStatus = useOnlineStatus();
+
+  const [restroName, setRestroName] = useState("");
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
@@ -39,7 +41,12 @@ const Body = () => {
     setFilteredListOfRestaurant(filteredList);
   };
 
-  return listOfRestaurant.length === 0 ? (
+  if (onlineStatus !== true)
+    return (
+      <h2 className="body-container">Opps!!! Looks like you are offline.</h2>
+    );
+
+  return listOfRestaurant?.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body-container">
@@ -74,8 +81,11 @@ const Body = () => {
       <div className="rest-container">
         <div className="restaurant-cards">
           {filteredListOfRestaurant.map((restraunt) => (
-            <Link key={restraunt.info.id} to={"/restraunts/"+restraunt.info.id}>
-            <RestrauntCard  resObj={restraunt.info} />
+            <Link
+              key={restraunt.info.id}
+              to={"/restraunts/" + restraunt.info.id}
+            >
+              <RestrauntCard resObj={restraunt.info} />
             </Link>
           ))}
         </div>

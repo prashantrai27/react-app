@@ -196,5 +196,11 @@ data later componentDidMount called and re renders with actual data.
 //////////// Unmount ////////////
 - Component Will Unmount
 
+# Lecture 9 - code optimizing
+* to optimize the code first thing we can do is make it modular.
+* create custom hooks and separate the logic. like in this we have done for api calls.
+* we can do lazy loading or dynamic loading, chunking, on demand loading and couple of other words of the same thing.
+* basically we can load our code if we need it. this make different build file for that chunk.
+* we can load the component on demand.
 
 
