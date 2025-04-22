@@ -1,4 +1,4 @@
-# react-app
+# React-app (Swiggy dummy)
 
 # will create a brand new app here using npm
 
