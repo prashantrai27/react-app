@@ -197,10 +197,32 @@ data later componentDidMount called and re renders with actual data.
 - Component Will Unmount
 
 # Lecture 9 - code optimizing
+* writing in a modular fashion makes the code reusable, maintainable and testable.
+* custom hooks can be created by us. hook is just a utility function or helper function.
+* built-in hooks are useEffect, useState, useParams.
 * to optimize the code first thing we can do is make it modular.
 * create custom hooks and separate the logic. like in this we have done for api calls.
 * we can do lazy loading or dynamic loading, chunking, on demand loading and couple of other words of the same thing.
 * basically we can load our code if we need it. this make different build file for that chunk.
 * we can load the component on demand.
+
+# Lecture 10 - Tailwind
+
+* There are many ways to write css
+- css
+- scss - perform nesting, use variables and at last it gets converted to css only.
+- inline css - it's not reusable and difficult to maintain. not a good practice and heavy job for browser to understand.
+- Styled component - writing css inside the js
+- libraries - provides consistent ui, takes care of responsiveness and development is faster using these. But
+it increases bundle size, personal customization is hard.
+- we can use multiple ui libraries in our project but it's not a good practice. it's basically package so we can install it like other packages.
+
+* Tailwind
+- Css on the go
+- Reusability
+- less bundle size
+- flexible ui(customizable ui)
+- it wont let normal behavior work the way it works. it works in tailwind way. basically if you use it. by default it's classes applies.
+- everything in tailwind works as classname.
 
 
