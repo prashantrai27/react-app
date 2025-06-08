@@ -224,5 +224,15 @@ it increases bundle size, personal customization is hard.
 - flexible ui(customizable ui)
 - it wont let normal behavior work the way it works. it works in tailwind way. basically if you use it. by default it's classes applies.
 - everything in tailwind works as classname.
+- it'll only include classes to production which we have used it.
+- media queries we write for phone, tablet and laptop basically small big and large.
+
+- sm means small devices in tailwind. sm:bg-yellow , md: bg-red
+pros - code is less, easy to use, bundle size small, easy to debug, gives control
+cons - high learning curve, makes class name bit ugly
+
+# Lecture 11 - Data is the new oil
+
+
 
 

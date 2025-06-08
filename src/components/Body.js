@@ -11,8 +11,8 @@ const Body = () => {
 
   const swiggyResponse = useAppData();
 
-  useEffect(()=>{
-    if(swiggyResponse.data) {
+  useEffect(() => {
+    if (swiggyResponse.data) {
       setListOfRestaurant(
         swiggyResponse?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
           .restaurants
@@ -22,8 +22,8 @@ const Body = () => {
           .restaurants
       ); // Getting live api response
     }
-  },[swiggyResponse.data])
-  
+  }, [swiggyResponse.data]);
+
   const onlineStatus = useOnlineStatus();
 
   const [restroName, setRestroName] = useState("");
@@ -50,16 +50,16 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body-container">
-      <div className="search-bar">
+      <div className="search-bar p-2 bg-blue-100 my-2">
         <input
           type="text"
-          className="search"
+          className="p-2 m-2 bg-white outline-none rounded-xl"
           value={restroName}
           onChange={(e) => setRestroName(e.target.value)}
           onKeyDown={handleKeyDown}
         ></input>
         <button
-          className="search"
+          className="p-2 m-2 bg-green-600 text-white hover:bg-gray-500 rounded-xl"
           onClick={() => {
             handleSearch();
           }}
@@ -67,7 +67,7 @@ const Body = () => {
           Search
         </button>
         <button
-          className="search"
+          className="p-2 m-2 bg-green-600 text-white hover:bg-gray-500 cursor-pointer rounded-xl"
           onClick={() => {
             const filteredList = filteredListOfRestaurant.filter(
               (restro) => restro.info.avgRating > 4.2
@@ -78,17 +78,12 @@ const Body = () => {
           Find high rated Restraunt
         </button>
       </div>
-      <div className="rest-container">
-        <div className="restaurant-cards">
-          {filteredListOfRestaurant.map((restraunt) => (
-            <Link
-              key={restraunt.info.id}
-              to={"/restraunts/" + restraunt.info.id}
-            >
-              <RestrauntCard resObj={restraunt.info} />
-            </Link>
-          ))}
-        </div>
+      <div className="flex flex-wrap">
+        {filteredListOfRestaurant.map((restraunt) => (
+          <Link key={restraunt.info.id} to={"/restraunts/" + restraunt.info.id}>
+            <RestrauntCard resObj={restraunt.info} />
+          </Link>
+        ))}
       </div>
     </div>
   );
