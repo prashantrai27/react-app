@@ -233,6 +233,20 @@ cons - high learning curve, makes class name bit ugly
 
 # Lecture 11 - Data is the new oil
 
-
-
+* Higher order component
+- it's a function which takes a component and returns a component(normal js fucntion).
+- it's basically a inhancer. to provide extra functionality to the existing component or function.
+- controlled and uncontrolled component. if a component has power on it's own then controlled if parent controls
+then it's uncontrolled.
+- lifting state up in react. basically change the state of parent from child (in swiggy example of accordian).
+- React context .. context solves the problem of props drilling. basically using data in central place and use it
+anywhere.
+- to create context we use createContext from react and to use it we have useContext hook from userContext(created by us).
+- In class based component we can use userContext using .Consumer example
+<someComponent.Consumer>{(data)=> console.log(data)}</someComponent>
+- .Provider is used to provide context data to the whole thing which is inside/wrapped that tag. 
+value is changed for that context everywhere which is inside .Provider tag
+- we can use Provider for specific portion using context and it can be done for whole app also.
+- data management or state management library is redux. we can use same using context.
+- difference is redux is external library.
 

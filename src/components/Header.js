@@ -2,6 +2,7 @@ import { useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import userDetailContext from "../utils/userDetailContext";
 
 const Header = () => {
   const [loginLogoutBtn, setLoginLogoutBtn] = useState("Login");
@@ -28,6 +29,10 @@ const Header = () => {
             >
               {loginLogoutBtn}
             </button>
+          </li>
+          <li>
+            User: <userDetailContext.Consumer>{(data=>data.loggedInUser)}</userDetailContext.Consumer>
+           {/* like this we can use context in react component. */}
           </li>
         </ul>
       </div>

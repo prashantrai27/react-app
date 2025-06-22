@@ -1,4 +1,4 @@
-import RestrauntCard from "./RestrauntCard";
+import RestrauntCard, {RestrauntCardPromoted} from "./RestrauntCard";
 import Shimmer from "./Shimmer";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -8,8 +8,9 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
   const [filteredListOfRestaurant, setFilteredListOfRestaurant] = useState([]);
-
   const swiggyResponse = useAppData();
+
+  const RestrauntCardPro = RestrauntCardPromoted(RestrauntCard);
 
   useEffect(() => {
     if (swiggyResponse.data) {
@@ -81,7 +82,7 @@ const Body = () => {
       <div className="flex flex-wrap">
         {filteredListOfRestaurant.map((restraunt) => (
           <Link key={restraunt.info.id} to={"/restraunts/" + restraunt.info.id}>
-            <RestrauntCard resObj={restraunt.info} />
+            {restraunt.info?.veg ? <RestrauntCardPro resObj={restraunt.info} /> : <RestrauntCard resObj={restraunt.info} />}
           </Link>
         ))}
       </div>
