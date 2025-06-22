@@ -250,3 +250,13 @@ value is changed for that context everywhere which is inside .Provider tag
 - data management or state management library is redux. we can use same using context.
 - difference is redux is external library.
 
+# Lecture 12 - Let's build our store
+
+- Redux toolkit is a way of using redux. it is different than vanilla redux. it is also called RTK.
+- redux store is big object and it can be accessed from anywhere from the object. It is used to keep
+all the app data. but it has slices/part(logical seperation like card, user) of the redux store.
+- to add something in store or manipulate something on store. we need to dispatch an action which calls a
+function and this function modifies it.
+- This function is called as reducer function. it modifies slice of the redux store.
+- To read the data from our store we use selector. It'll give us the data(it is called subscribed to the store).
+- To use it in our application we need to install @reduxjs/toolkit and react-redux
